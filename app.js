@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
         //Set DOM Elements from the API
         
         const {temp, icon} = data.current
-        console.log(data.current)
+        console.log(data)
         degree.textContent = temp
         console.log(temp)
 
@@ -32,21 +32,19 @@ window.addEventListener('load', () => {
 
         const avg =  data.current.weather[0].main
         console.log(avg)
-       
+
         description.textContent = avg
         // Set Icons according to weather description
 
-        setIcons(icon, document.querySelector('.icon'))
+        const weatherIconId = data.current.weather[0].icon
+        console.log(weatherIconId)
+        document.querySelector('#icon').setAttribute('src', `http://openweathermap.org/img/wn/${weatherIconId}.png`)
 
 
 
       })  
     })
   } 
-  function setIcons (icon,iconId){
-    const skycons = new Skycons({color: "white"})
-    const currentIcon = icon.replace(/-/g, "_").toUpperCase()
-    skycons.play()
-    return skycons.set(iconId, Skycons[currentIcon])
-  }
+
+  
 })
