@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
         //Set DOM Elements from the API
         
         const {temp, icon} = data.current
-        console.log(data)
+        console.log(data.current)
         degree.textContent = temp
         console.log(temp)
 
